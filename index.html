@@ -6,119 +6,109 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>JegyBazár</title>
+    <title>újJegyBazár</title>
 
-    <!-- Bootstrap core CSS -->
+<!-- Bootstrap core CSS -->
     <link href="lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+ <!-- Custom styles for this template -->
+ <link href="css/style.css" rel="stylesheet">
+ 
+</head>
+    <!-- body -->
+    <body>
+        <div class="content-container">
 
-    <!-- Custom styles for this template -->
-    <link href="css/style.css" rel="stylesheet">
-	<script defer src="lib/fontawesome-free-5.0.6/on-server/js/fontawesome-all.js"></script>
-  </head>
+    <!-- navbar --> 
 
-  <body>
-
-    <div class="container">
-
-      <div class="masthead">
-        <h3 class="text-muted">JegyBazár</h3>
-
-        <nav class="navbar navbar-expand-md navbar-light bg-light rounded mb-3">
-          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse" id="navbarCollapse">
-            <ul class="navbar-nav text-md-center nav-justified w-100">
-              <li class="nav-item active">
-                <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="events.html">Események</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="tickets.html">Jegyek</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="about.html">Rólunk</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="login.html">Belépés</a>
-              </li>
-            </ul>
-          </div>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <div class="container">
+                <a class="navbar-brand" href="#">Jegybazár</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                    <div class="navbar-nav ml-auto">
+                        <a class="nav-item nav-link active" href="index.html">Home</a>
+                        <a class="nav-item nav-link" href="esemenyek.html">Események</a>
+                        <a class="nav-item nav-link" href="jegyek.html">Jegyek</a>
+                        <a class="nav-item nav-link" href="rolunk.html">Rólunk</a>
+                        <a class="nav-item nav-link" href="belepes.html">Belépés</a>
+                        <a href="regisztracio.html" class="nav-item nav-link btn btn-primary text-light ml-lg-2 btn-sm">Regisztráció</a>
+                    </div>
+                </div>
+            </div>
         </nav>
-      </div>
+    <!-- navbar end --> 
 
-      <!-- Jumbotron -->
-      <div class="jumbotron">
-        <h1>Jegyek bárkitől, bárhol, bármikor!</h1>
-        <p class="lead">Használd a Jegybazárt és csereberélj jegyeket 
-            a legjobb bulikra. Elfogyott? Az orrod elől vitték el az utolsót? 
-            Ne aggódj, irány a JegyBazár!
-        </p>
-        <p>
-            <a class="btn btn-lg btn-success" href="events.html" role="button">
-                Nézzük az eseményeket
-            </a>
-        </p>
-      </div>
+    <!-- jumbotron --> 
 
-      <!-- Example row of columns -->
-      <div class="row">
-        <!-- Events object. -->
-        <div class="media col-lg-4">
-          <i class="far fa-calendar-alt d-flex mr-3 home-media-icon"></i>
-          <div class="media-body">
-            <h5 class="mt-0">Események</h5>
-            Itt találod a legtöbb jó bulit, böngéssz bátran és keress vagy adj el 
-            jegyeket a barátaidnak, vagy más felhasználóknak.
-            <p>
-              <a class="btn btn-primary" href="events.html" role="button">
-                <i class="fa fa-calendar" aria-hidden="true"></i> Események
-              </a>
-            </p>
-          </div>
+        <div class="jumbotron py-5">
+            <div class="container text-center">
+                <h1 class="display-4 mb-4">Jegyek bárkitől, bárhol, bármikor!</h1>
+                    <p class="lead">Használd a Jegybazárt és csereberélj jegyeket a legjobb bulikra. Elfogyott? Az orrod elől vitték el az utolsót? Ne aggódj, irány a JegyBazár!</p>
+                    <p class="lead">
+                        <a class="btn btn-primary btn-lg mt-4 mb-0" href="#" role="button">Nézzük az eseményeket!</a>
+                    </p>
+            </div>
         </div>
-        <!-- Tickets. -->
-        <div class="media col-lg-4">
-          <i class="fas fa-ticket-alt d-flex mr-3 home-media-icon"></i>
-          <div class="media-body">
-            <h5 class="mt-0">Jegyek</h5>
-            Ha sietsz, egyből kezdheted a jegyek böngészésével is. Itt is tudsz 
-            keresni az esemény neve vagy időpontja alapján.
-            <p>
-              <a class="btn btn-primary" href="tickets.html" role="button">
-                <i class="fas fa-ticket-alt" aria-hidden="true"></i> Jegyek
-              </a>
-            </p>
-          </div>
-        </div>
-        <!-- Registration. -->
-        <div class="media col-lg-4">
-            <i class="fa fa-user-plus d-flex mr-3 home-media-icon" aria-hidden="true"></i>
-          <div class="media-body">
-            <h5 class="mt-0">Regisztráció</h5>
-            Még nem regisztráltál? Akkor gyorsan tedd meg, mert a szolgáltatás 
-            csak tagonkak elérhető. Sőt, az újak értékes ajándékot kapnak tőlünk.
-            <p>
-              <a class="btn btn-primary" href="register.html" role="button">
-                <i class="fa fa-user-plus" aria-hidden="true"></i> Regisztráció
-              </a>
-            </p>
-          </div>
-        </div>
-      </div>
 
-      
-    </div> <!-- /container -->
-    
-    <div class="container footer-container">
-      <!-- Site footer -->
-      <footer class="footer">
-        <p>&copy; Company 2017</p>
-      </footer>
+    <!-- cards --> 
+
+        <div class="container">
+
+            <div class="card-deck pt-5">
+
+                <div class="col col-md-6 col-lg-4">
+                    <div class="index_card text-center">
+                        <div class="row justify-content-center">
+                            <img class="card-img-top img-fluid calendar" src="img/calendar.png" alt="Card image cap">
+                        </div>
+                        <div class="card-body">
+                            <h4 class="card-title text-center">Események</h4>
+                            <p class="index_text card-text">Itt találod a legtöbb jó bulit, böngéssz bátran és keress vagy adj el jegyeket a barátaidnak, vagy más felhasználóknak.</p>
+                            <a href="#" class="btn btn-primary index_btn_card">Események</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col col-md-6 col-lg-4">
+                    <div class="index_card text-center">
+                        <div class="row justify-content-center">
+                            <img class="card-img-top img-fluid calendar" src="img/ticket.png" alt="Card image cap">
+                        </div>
+                        <div class="card-body">
+                            <h4 class="card-title text-center">Jegyek</h4>
+                            <p class="index_text card-text">Ha sietsz, egyből kezdheted a jegyek böngészésével is. Itt is tudsz keresni az esemény neve vagy időpontja alapján.</p>
+                            <a href="#" class="btn btn-primary index_btn_card">Jegyek</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col col-md-8 mx-md-auto col-lg-4">
+                    <div class="index_card text-center col">
+                        <div class="row justify-content-center">
+                            <img class="card-img-top img-fluid calendar" src="img/user.png" alt="Card image cap">
+                        </div>
+                        <div class="card-body">
+                            <h4 class="card-title">Regisztráció</h4>
+                            <p class="index_text card-text">Még nem regisztráltál? Akkor gyorsan tedd meg, mert a szolgáltatás csak tagonkak elérhető. Sőt, az újak értékes ajándékot kapnak tőlünk.</p>
+                            <a href="regisztracio.html" class="btn btn-primary index_btn_card">Regisztráció</a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
     </div>
+</div>
+    <!-- footer -->   
 
+        <footer class="bg-light text-center py-3 sticky-bottom">
+            <div class="container">
+            <p class="m-0">&copy; Company 2017</p>
+            </div>
+        </footer> 
+
+            
 
     <!-- Bootstrap core JavaScript
     ================================================== -->
@@ -127,4 +117,5 @@
     <script src="lib/popper.min.js"></script>
     <script src="lib/bootstrap/js/bootstrap.min.js"></script>
   </body>
+   <!-- style end-->
 </html>
