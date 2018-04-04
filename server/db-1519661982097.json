@@ -1,0 +1,125 @@
+{
+  "events": [
+    {
+      "id": 1,
+      "title": "Sziget Fesztivál",
+      "description": "Látogass el a 25 éves Szigetre és bulizz a legjobb arcokkal",
+      "time": "2018-08-03",
+      "image": "img/sziget.png"
+    },
+    {
+      "id": 2,
+      "title": "Diótörő Balett",
+      "description": "Nézd meg a grandiőzus balett előadást most elővételben",
+      "time": "2018-08-03",
+      "image": "img/diotoro.jpg"
+    },
+    {
+      "title": "Efott",
+      "time": "2017-10-31",
+      "image": "img/sziget.png",
+      "description": "A logjobb buli.",
+      "id": 3
+    },
+    {
+      "title": "Macskák Musical",
+      "time": "2018-02-22",
+      "image": "img/macskak.jpg",
+      "description": "A világ leghíresebb Musicelje a legjobb előadóktól.",
+      "id": 4
+    }
+  ],
+  "tickets": [
+    {
+      "id": 1,
+      "event": "Sziget Fesztivál",
+      "eventId": 1,
+      "time": "2018-08-03 18:00:00",
+      "seller": "Kis Márton",
+      "pcs": 9,
+      "link": "licit/1"
+    },
+    {
+      "id": 2,
+      "eventId": 2,
+      "event": "Diótörő Balett",
+      "time": "2018-08-03 18:00:00",
+      "seller": "Nagy Ádám",
+      "pcs": 6,
+      "link": "licit/1"
+    },
+    {
+      "id": 3,
+      "event": "MOMA Party",
+      "time": "2018-08-03 18:00:00",
+      "seller": "Brezeviczy Krisztián",
+      "pcs": 1,
+      "link": "licit/1"
+    },
+    {
+      "id": 4,
+      "event": "A Kékszakállú Herceg vára",
+      "time": "2018-08-03 18:00:00",
+      "seller": "Zwack Magdolna",
+      "pcs": 15,
+      "link": "licit/1"
+    },
+    {
+      "id": 5,
+      "event": "Balett mindenkinek",
+      "time": "2018-08-03 18:00:00",
+      "seller": "Schwarz Aurél",
+      "pcs": 3,
+      "link": "licit/1"
+    },
+    {
+      "id": 6,
+      "eventId": 4,
+      "event": "Macskák Musical",
+      "time": "2018-08-03 18:00:00",
+      "seller": "Nagy Gábor",
+      "pcs": 5,
+      "link": "licit/1"
+    },
+    {
+      "id": 7,
+      "eventId": 4,
+      "event": "Macskák Musical",
+      "time": "2018-08-03 18:00:00",
+      "seller": "Cserkó József - TEST",
+      "pcs": 2,
+      "link": "licit/1"
+    },
+    {
+      "event": "Balett mindenkinek",
+      "seller": "Kiss Péter",
+      "time": "2017-10-27T18:20",
+      "pcs": "1",
+      "id": 8
+    },
+    {
+      "event": "Efott",
+      "eventId": "3",
+      "time": "2018-08-15",
+      "seller": "Én",
+      "pcs": "1",
+      "id": 9
+    },
+    {
+      "event": "Efott",
+      "eventId": "3",
+      "time": "2017-10-31",
+      "seller": "Robi",
+      "pcs": "4",
+      "id": 10
+    },
+    {
+      "event": "Efott",
+      "eventId": "3",
+      "time": "2017-10-31",
+      "seller": "Nagy Géza",
+      "pcs": "4",
+      "id": 11
+    }
+  ]
+}

@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>JegyBazár</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="../lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="../css/style.css" rel="stylesheet">
+</head>
+
+<body>
+
+    <div class="container">
+
+        <div class="masthead">
+            <h3 class="text-muted">JegyBazár</h3>
+        </div>
+        <form id="new-ticket-form" novalidate>
+            <div class="form-group">
+                <label for="event-name">Az esemény megnevezése</label>
+                <input type="text" class="form-control" id="event-name" name="event" placeholder="Az esemény megnevezése" required>
+            </div>
+            <div class="form-group">
+                <label for="seller-name">Eladó neve</label>
+                <input type="text" class="form-control" id="seller-name" name="seller" placeholder="Eladó neve" required>
+            </div>
+            <div class="form-group">
+                <label for="time">Időpont</label>
+                <input type="datetime-local" class="form-control" id="time" name="time" placeholder="Időpont" required>
+            </div>
+            <div class="form-group">
+                <label for="pcs">Jegyek száma</label>
+                <input type="number" class="form-control" id="pcs" name="pcs" placeholder="Jegyek száma" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+
+        <div id="ticket-list">
+            <pre></pre>
+        </div>
+    </div>
+    <!-- /container -->
+
+    <div class="container footer-container">
+        <!-- Site footer -->
+        <footer class="footer">
+            <p>&copy; Company 2017</p>
+        </footer>
+    </div>
+
+    <div class="templates" style="display: none;">
+        <table>
+            <tr class="ticket-row">
+                <td></td>
+                <td data-toggle="tooltip" data-html="true" data-placement="bottom" title="<strong>Még 3 napig lehet licitálni</strong><br/>az esemény megtekintéséhez kattints ide">
+                    <a href="event.html?id=1">Sziget fesztivál</a></td>
+                <td>2018.08.03. 13:00</td>
+                <td class="d-none d-md-table-cell">Példa Jóska</td>
+                <td class="text-right d-none d-md-table-cell">3 db.</td>
+                <td>
+                    <a href="bid.html?id=1">tovább a licithez</a>
+                </td>
+            </tr>
+        </table>
+    </div>
+
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="../lib/popper.min.js"></script>
+    <script src="../lib/bootstrap/js/bootstrap.min.js"></script>
+    <script src="../js/main.js"></script>
+    <script type="text/javascript">
+        // tavoli server url
+        var RESTURL = "http://localhost:3000";
+
+        function disableInputs(inputs) {
+            inputs.prop('disabled', true);
+        }
+
+        function enableInputs(inputs) {
+            inputs.prop('disabled', false);
+        }
+
+        function showAlert(beforeElem, type, text) {
+            var formAlertId = 'form-alert';
+
+            $("#" + formAlertId).remove();
+
+            $('<div class="alert alert-' + type + '" id="' + formAlertId + '" role="alert">' + text + '</div>')
+                .insertBefore(beforeElem).fadeIn();
+
+            setTimeout(function () {
+                $("#" + formAlertId).fadeOut(function () {
+                    $(this).remove();
+                });
+            }, 3000);
+        }
+
+        function refreshTicketList() {
+            $.getJSON(RESTURL + "/tickets?_sort=id&_order=desc").done(
+                function (ticketList) {
+                    $('#ticket-list > pre')[0].innerText = JSON.stringify(ticketList, null, 2);
+                }
+            );
+        }
+
+        $(document).ready(function () {
+            refreshTicketList();
+
+            $("#new-ticket-form").submit(
+                function (event) {
+                    // bongeszo beepitett submit esemeny megallitasa
+                    event.preventDefault();
+
+                    // jquery form elem
+                    var newTicketFormElem = $(this);
+                    // bongeszo native form elem
+                    var newTicketFormNativeElem = newTicketFormElem[0];
+
+                    // check html5 validator
+                    if (newTicketFormNativeElem.checkValidity() == true) {
+                        // Itt valid az urlapom
+                        var serializedFormArray = newTicketFormElem.serializeArray();
+                        var data = {};
+                        $(serializedFormArray).each(
+                            function (index, elem) {
+                                data[elem['name']] = elem['value'];
+                            }
+                        );
+
+                        var inputs = $('input', newTicketFormElem);
+                        disableInputs(inputs);
+
+                        $.ajax({
+                            type: "POST",
+                            url: RESTURL + "/tickets",
+                            "data": data,
+                            dataType: 'json'
+                        }).done(function (returnData) {
+                            console.log("returnData => ", returnData);
+                            newTicketFormElem.removeClass('was-validated');
+                            newTicketFormNativeElem.reset();
+                            enableInputs(inputs);
+
+                            showAlert(newTicketFormElem, 'success', 'Sikeres mentés');
+                            refreshTicketList();
+                        }).fail(function () {
+                            alert("Hiba a server elérésénél");
+
+                            enableInputs(inputs);
+                            showAlert(newTicketFormElem, 'warning', 'Hiba a serveren');
+                        });
+                    }
+
+                    if (newTicketFormElem.hasClass('was-validated') == false) {
+                        newTicketFormElem.addClass('was-validated');
+                    }
+                }
+            );
+        });
+    </script>
+</body>
+
+</html>
